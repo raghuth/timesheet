@@ -15,6 +15,7 @@ import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 import './layout/layout.scss';
 import './App.scss';
+import {UserComponent} from './components/user/user.component'
 
 class App extends Component {
 
@@ -87,7 +88,7 @@ class App extends Component {
     createMenu() {
         this.menu = [
             {label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => {window.location = '#/'}},
-          
+            {label: 'Users', icon: 'pi pi-fw pi-users', command: () => {window.location = '#/users'}},
         ];
     }
 
@@ -138,7 +139,7 @@ class App extends Component {
 
                 <div ref={(el) => this.sidebar = el} className={sidebarClassName} onClick={this.onSidebarClick}>
                     <div className="layout-logo">
-                        <img alt="Logo" src={logo} />
+                        <h1>TimeSheet</h1>
                     </div>
                     <AppProfile />
                     <AppMenu model={this.menu} onMenuItemClick={this.onMenuItemClick} />
@@ -146,7 +147,7 @@ class App extends Component {
 
                 <div className="layout-main">
                     <Route path="/" exact component={Dashboard} />
-
+                    <Route path="/users" exact component={UserComponent} />
                 </div>
 
                 <AppFooter />
