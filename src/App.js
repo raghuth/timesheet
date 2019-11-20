@@ -15,11 +15,16 @@ import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 import './layout/layout.scss';
 import './App.scss';
-import { UserComponent } from './components/user/user.component'
-import { AssignUser } from './components/assign_users/assign_user'
-import { CreateTask } from './components/create_tasks/create_tasks'
-import { UserTasks } from './components/user_tasks/user_tasks'
-import { GenerateTimesheetReport } from './components/generate_timesheet_report/generate_timesheet_report'
+import {AdduserComponent } from './components/users/add.user.component';
+import {AssignUserComponent } from './components/users/assign.user.component';
+import {UserListComponent } from './components/users/list.user.component';
+import {AddUserRoleComponent } from './components/users/add.user.role.component';
+
+
+
+import { AddTaskComponent } from './components/tasks/add.task.component';
+import { UserTaskComponent } from './components/tasks/user.task.component';
+import { TimesheetReportComponent } from './components/reports/timesheet.report.component';
 
 
 class App extends Component {
@@ -93,11 +98,13 @@ class App extends Component {
     createMenu() {
         this.menu = [
             { label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => { window.location = '#/' } },
-            { label: 'Users', icon: 'pi pi-fw pi-users', command: () => { window.location = '#/users' } },
-            { label: 'Assign User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/assignuser' } },
-            { label: 'Create Task', icon: 'pi pi-fw pi-list', command: () => { window.location = '#/createtask' } },
-            { label: 'User Tasks', icon: 'pi pi-fw pi-clock', command: () => { window.location = '#/usertasks' } },
-            { label: 'Generate Timesheet Report', icon: 'pi pi-fw pi-sitemap', command: () => { window.location = '#/generatetimesheetreport' } }
+            { label: 'Users', icon: 'pi pi-fw pi-users', command: () => { window.location = '#/user/list' } },
+            { label: 'Assign User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/assign' } },
+            { label: 'Add User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/add' } },
+            { label: 'Add User Role', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/add/role' } },
+            { label: 'Create Task', icon: 'pi pi-fw pi-list', command: () => { window.location = '#/task/add' } },
+            { label: 'User Tasks', icon: 'pi pi-fw pi-clock', command: () => { window.location = '#/task/user' } },
+            { label: 'Timesheet Report', icon: 'pi pi-fw pi-sitemap', command: () => { window.location = '#/reports/timesheet' } }
         ];
     }
 
@@ -156,14 +163,19 @@ class App extends Component {
 
                 <div className="layout-main">
                     <Route path="/" exact component={Dashboard} />
-                    <Route path="/users" exact component={UserComponent} />
-                    <Route path="/assignuser" exact component={AssignUser} />
-                    <Route path="/createtask" exact component={CreateTask} />
-                    <Route path="/usertasks" exact component={UserTasks} />
-                    <Route path="/generatetimesheetreport" exact component={GenerateTimesheetReport} />
+                    <Route path="/user/list" exact component={UserListComponent} />
+                    <Route path="/user/add" exact component={AdduserComponent} />
+                     <Route path="/user/add/role" exact component={AddUserRoleComponent} />
+                    <Route path="/user/assign" exact component={AssignUserComponent} />
+
+
+                    <Route path="/task/add" exact component={AddTaskComponent} />                    
+                    <Route path="/task/user" exact component={UserTaskComponent} />
+                    <Route path="/reports/timesheet" exact component={TimesheetReportComponent} /> 
                 </div>
 
                 <AppFooter />
+            
 
                 <div className="layout-mask"></div>
             </div>

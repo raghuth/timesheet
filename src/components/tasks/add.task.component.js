@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-export class CreateTask extends Component {
+export class AddTaskComponent extends Component {
     state = {  }
     render() { 
         return (

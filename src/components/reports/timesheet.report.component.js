@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class GenerateTimesheetReport extends Component {
+export class TimesheetReportComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {  }

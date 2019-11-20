@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-export class UserTasks  extends Component {
+export class UserTaskComponent  extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
