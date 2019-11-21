@@ -15,17 +15,14 @@ import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 import './layout/layout.scss';
 import './App.scss';
-import {AdduserComponent } from './components/users/add.user.component';
-import {AssignUserComponent } from './components/users/assign.user.component';
-import {UserListComponent } from './components/users/list.user.component';
-import {AddUserRoleComponent } from './components/users/add.user.role.component';
-
-
-
+import { AdduserComponent } from './components/users/add.user.component';
+import { AssignUserComponent } from './components/users/assign.user.component';
+import { UserListComponent } from './components/users/list.user.component';
+import { AddUserRoleComponent } from './components/users/add.user.role.component';
 import { AddTaskComponent } from './components/tasks/add.task.component';
 import { UserTaskComponent } from './components/tasks/user.task.component';
 import { TimesheetReportComponent } from './components/reports/timesheet.report.component';
-
+import { AddClientComponent } from './components/client/add.client.component';
 
 class App extends Component {
 
@@ -98,13 +95,14 @@ class App extends Component {
     createMenu() {
         this.menu = [
             { label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => { window.location = '#/' } },
-            { label: 'Users', icon: 'pi pi-fw pi-users', command: () => { window.location = '#/user/list' } },
+            { label: 'User', icon: 'pi pi-fw pi-users', command: () => { window.location = '#/user/list' } },
             { label: 'Assign User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/assign' } },
-            { label: 'Add User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/add' } },
-            { label: 'Add User Role', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/add/role' } },
+            // { label: 'Add User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/add' } },
+            { label: 'Add User Role', icon: 'pi pi-fw pi-th-large', command: () => { window.location = '#/user/add/role' } },
+            { label: 'Add Client', icon: 'pi pi-fw pi-cog', command: () => { window.location = '#/client/client' } },
             { label: 'Create Task', icon: 'pi pi-fw pi-list', command: () => { window.location = '#/task/add' } },
             { label: 'User Tasks', icon: 'pi pi-fw pi-clock', command: () => { window.location = '#/task/user' } },
-            { label: 'Timesheet Report', icon: 'pi pi-fw pi-sitemap', command: () => { window.location = '#/reports/timesheet' } }
+            { label: 'Timesheet Report', icon: 'pi pi-fw pi-eye', command: () => { window.location = '#/reports/timesheet' } }
         ];
     }
 
@@ -149,6 +147,7 @@ class App extends Component {
             'layout-sidebar-light': this.state.layoutColorMode === 'light'
         });
 
+
         return (
             <div className={wrapperClass} onClick={this.onWrapperClick}>
                 <AppTopbar onToggleMenu={this.onToggleMenu} />
@@ -165,17 +164,17 @@ class App extends Component {
                     <Route path="/" exact component={Dashboard} />
                     <Route path="/user/list" exact component={UserListComponent} />
                     <Route path="/user/add" exact component={AdduserComponent} />
-                     <Route path="/user/add/role" exact component={AddUserRoleComponent} />
+                    <Route path="/user/add/role" exact component={AddUserRoleComponent} />
                     <Route path="/user/assign" exact component={AssignUserComponent} />
+                    <Route path="/client/client" exact component={AddClientComponent} />
 
-
-                    <Route path="/task/add" exact component={AddTaskComponent} />                    
+                    <Route path="/task/add" exact component={AddTaskComponent} />
                     <Route path="/task/user" exact component={UserTaskComponent} />
-                    <Route path="/reports/timesheet" exact component={TimesheetReportComponent} /> 
+                    <Route path="/reports/timesheet" exact component={TimesheetReportComponent} />
                 </div>
 
                 <AppFooter />
-            
+
 
                 <div className="layout-mask"></div>
             </div>

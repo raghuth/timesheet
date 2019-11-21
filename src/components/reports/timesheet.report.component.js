@@ -7,12 +7,9 @@ export class TimesheetReportComponent extends Component {
     }
     render() { 
         return ( 
-
-            <div>
-                <h1>Generate Timesheet Report</h1>
-               
-
-            </div>
+            <div className="TimesheetReportComponent">
+                <h1>Timesheet Report</h1>             
+           </div>
             
          );
     }

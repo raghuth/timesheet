@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
-class AddClientComponent extends Component {
+export class AddClientComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
     render() { 
-        return (  );
+
+        return ( 
+            <div className="AddClientComponent">
+                <h1>Client </h1>
+            </div>
+            
+         );
     }
 }
- 
-export default AddClientComponent;

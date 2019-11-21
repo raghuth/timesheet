@@ -6,10 +6,9 @@ export class UserTaskComponent  extends Component {
     }
     render() { 
         return (
-          <div>
+          <div className="UserTaskComponent">
              <h1>User Tasks</h1> 
-              </div>
-
+            </div>
           );
     }
 }

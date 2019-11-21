@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
-export class AddUserRoleComponent  extends Component {
+export class AddUserRoleComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
-    render() { 
-        return ( 
-            <h1>Add User Role</h1>
-         );
+    render() {
+        return (
+            <div className="AddUserRoleComponent" >
+                 <h1>Add User Role</h1>
+            </div>
+        );
     }
 }
- 
+

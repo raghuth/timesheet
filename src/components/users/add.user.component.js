@@ -7,6 +7,7 @@ export class AdduserComponent extends Component {
         super();
         this.state = {
             user: []
+            
         }
     }
 
@@ -15,9 +16,12 @@ export class AdduserComponent extends Component {
     }
 
     render() {
+      
         return (
             <div className="p-grid p-fluid">
+              
                 <div className="p-col-12">
+               
                     <div className="card card-w-title">
                         <div className="p-col-12 ">
                             <h1>Add User</h1>
@@ -42,12 +46,12 @@ export class AdduserComponent extends Component {
                                 </div>
                                 <Button label="Submit" className="p-button-success " onClick={() => this.setState({ navigate: true })}   >
                                 </Button>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         );
     }
 
