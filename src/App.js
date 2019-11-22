@@ -23,7 +23,7 @@ import { AddTaskComponent } from './components/tasks/add.task.component';
 import { UserTaskComponent } from './components/tasks/user.task.component';
 import { TimesheetReportComponent } from './components/reports/timesheet.report.component';
 import { AddClientComponent } from './components/client/add.client.component';
-
+import { ThemeContext } from '././components/ThemeContext'
 class App extends Component {
 
     constructor() {
@@ -147,35 +147,30 @@ class App extends Component {
             'layout-sidebar-light': this.state.layoutColorMode === 'light'
         });
 
-
         return (
             <div className={wrapperClass} onClick={this.onWrapperClick}>
-                <AppTopbar onToggleMenu={this.onToggleMenu} />
-
+                <AppTopbar onToggleMenu={this.onToggleMenu} /> 
                 <div ref={(el) => this.sidebar = el} className={sidebarClassName} onClick={this.onSidebarClick}>
                     <div className="layout-logo">
                         <h1>TimeSheet</h1>
                     </div>
                     <AppProfile />
                     <AppMenu model={this.menu} onMenuItemClick={this.onMenuItemClick} />
-                </div>
-
+                </div> 
                 <div className="layout-main">
-                    <Route path="/" exact component={Dashboard} />
-                    <Route path="/user/list" exact component={UserListComponent} />
-                    <Route path="/user/add" exact component={AdduserComponent} />
-                    <Route path="/user/add/role" exact component={AddUserRoleComponent} />
-                    <Route path="/user/assign" exact component={AssignUserComponent} />
-                    <Route path="/client/client" exact component={AddClientComponent} />
-
-                    <Route path="/task/add" exact component={AddTaskComponent} />
-                    <Route path="/task/user" exact component={UserTaskComponent} />
-                    <Route path="/reports/timesheet" exact component={TimesheetReportComponent} />
+                    <ThemeContext.Provider value="Testing">
+                        <Route path="/" exact component={Dashboard} />
+                        <Route path="/user/list" exact component={UserListComponent} />
+                        <Route path="/user/add" exact component={AdduserComponent} />
+                        <Route path="/user/add/role" exact component={AddUserRoleComponent} />
+                        <Route path="/user/assign" exact component={AssignUserComponent} />
+                        <Route path="/client/client" exact component={AddClientComponent} />
+                        <Route path="/task/add" exact component={AddTaskComponent} />
+                        <Route path="/task/user" exact component={UserTaskComponent} />
+                        <Route path="/reports/timesheet" exact component={TimesheetReportComponent} />
+                    </ThemeContext.Provider>
                 </div>
-
                 <AppFooter />
-
-
                 <div className="layout-mask"></div>
             </div>
         );

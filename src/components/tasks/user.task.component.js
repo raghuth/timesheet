@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
-export class UserTaskComponent  extends Component {
+import React, { Component} from 'react';
+
+ 
+export class UserTaskComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
-    render() { 
+   
+    render() {
+
         return (
-          <div className="UserTaskComponent">
-             <h1>User Tasks</h1> 
+            <div className="UserTaskComponent">
+            <h1>User Tasks</h1>     
+                                         
             </div>
-          );
+        );
     }
 }
- 
+

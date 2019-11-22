@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import {CarService} from '../service/CarService';
-import {Panel} from 'primereact/panel';
-import {Checkbox} from 'primereact/checkbox';
-import {Button} from 'primereact/button';
-import {Dropdown} from 'primereact/dropdown';
-import {InputText} from 'primereact/inputtext';
-import {Chart} from 'primereact/chart';
-import {DataTable} from 'primereact/datatable';
-import {Column} from 'primereact/column';
-import {FullCalendar} from 'primereact/fullcalendar';
+// import {Panel} from 'primereact/panel';
+// import {Checkbox} from 'primereact/checkbox';
+// import {Button} from 'primereact/button';
+// import {Dropdown} from 'primereact/dropdown';
+// import {InputText} from 'primereact/inputtext';
+// import {Chart} from 'primereact/chart';
+// import {DataTable} from 'primereact/datatable';
+// import {Column} from 'primereact/column';
+// import {FullCalendar} from 'primereact/fullcalendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -148,8 +148,9 @@ export class Dashboard extends Component {
 
     render() {        
         return (
+            <div className="Dashboard-component"> 
             <div className="p-grid p-fluid dashboard">
-                <div className="p-col-12 p-lg-4">
+                {/* <div className="p-col-12 p-lg-4">
                     <div className="card summary">
                         <span className="title">Users</span>
                         <span className="detail">Number of visitors</span>
@@ -385,6 +386,7 @@ export class Dashboard extends Component {
                             </li>
                         </ul>
                     </Panel>
+                </div> */}
                 </div>
             </div>
         );
