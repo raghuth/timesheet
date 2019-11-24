@@ -18,15 +18,14 @@ export class AdduserComponent extends Component {
     render() {
       
         return (
-            <div className="p-grid p-fluid">
-              
-                <div className="p-col-12">
-               
+         <div className="addusercomponent">
+            <div className="p-grid p-fluid">              
+                <div className="p-col-12">               
                     <div className="card card-w-title">
                         <div className="p-col-12 ">
                             <h1>Add User</h1>
                             <div className="p-grid">
-                                <div className="p-col-12 ">
+                                <div className="p-col-12">
                                     <label htmlFor="input"> First Name </label>
                                 </div>
                                 <div className="p-col-12 ">
@@ -41,17 +40,19 @@ export class AdduserComponent extends Component {
                                 <div className="p-col-12">
                                     <label htmlFor="input"> Email ID </label>
                                 </div>
-                                <div className="p-col-12 ">
+                                <div className="p-col-12">
                                     <InputText id="input" />
                                 </div>
-                                <Button label="Submit" className="p-button-success " onClick={() => this.setState({ navigate: true })}   >
-                                </Button>
-                                
-                            </div>
+                                <div className="submit-button" >
+                                <Button label="Submit" className="p-button-success " onClick={() => this.setState({ navigate: true })} ></Button>      
+                                <Button label="Cancel" className="p-button-danger" />                                                       
+                                </div>                                                             
+                            </div>                              
                         </div>
                     </div>
                 </div>
             </div>
+         </div>          
         );
     }
 

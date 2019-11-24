@@ -23,7 +23,8 @@ import { AddTaskComponent } from './components/tasks/add.task.component';
 import { UserTaskComponent } from './components/tasks/user.task.component';
 import { TimesheetReportComponent } from './components/reports/timesheet.report.component';
 import { AddClientComponent } from './components/client/add.client.component';
-import { ThemeContext } from '././components/ThemeContext'
+import { ThemeContext } from '././components/ThemeContext';
+//import { index } from '././components/test.component'
 class App extends Component {
 
     constructor() {
@@ -43,6 +44,10 @@ class App extends Component {
         this.createMenu();
     }
 
+    componentDidMount(){
+      console.log(this.context); //{}
+    }
+  
     onWrapperClick(event) {
         if (!this.menuClick) {
             this.setState({
@@ -98,6 +103,7 @@ class App extends Component {
             { label: 'User', icon: 'pi pi-fw pi-users', command: () => { window.location = '#/user/list' } },
             { label: 'Assign User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/assign' } },
             // { label: 'Add User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/add' } },
+           // { label: 'index', icon: 'pi pi-fw pi-clock', command: () => { window.location = '#/index' } },
             { label: 'Add User Role', icon: 'pi pi-fw pi-th-large', command: () => { window.location = '#/user/add/role' } },
             { label: 'Add Client', icon: 'pi pi-fw pi-cog', command: () => { window.location = '#/client/client' } },
             { label: 'Create Task', icon: 'pi pi-fw pi-list', command: () => { window.location = '#/task/add' } },
@@ -159,6 +165,7 @@ class App extends Component {
                 </div> 
                 <div className="layout-main">
                     <ThemeContext.Provider value="Testing">
+                    {/* <Route path="/index" exact component={index} /> */}
                         <Route path="/" exact component={Dashboard} />
                         <Route path="/user/list" exact component={UserListComponent} />
                         <Route path="/user/add" exact component={AdduserComponent} />

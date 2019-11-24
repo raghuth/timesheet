@@ -5,10 +5,10 @@
     color: #ffffff;
     z-index: 999;
     right: 0;
-    @include clearfix();
-    @include linear-gradient-left($topbarLeftBgColor,$topbarRightBgColor);
-    @include transition(left $transitionDuration);
-
+    background: white;
+   // border-bottom: groove;
+   //border-bottom: 1px solid gray;
+   box-shadow: 0 2px 6px 0 rgba(0,0,0,.13);
     .layout-topbar-icons {
         float: right;
         display: block;
@@ -109,7 +109,7 @@
         cursor: pointer;
         display: inline-block;
         text-decoration: none;
-        color: $topbarItemColor;
+        color: #1d1c1c;
         @include transition(color $transitionDuration);
 
         span {
@@ -117,7 +117,7 @@
         }
 
         &:hover {
-            color: $topbarItemHoverColor;
+            color: #080808;;
         }
     }
 

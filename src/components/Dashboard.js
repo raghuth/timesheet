@@ -150,6 +150,7 @@ export class Dashboard extends Component {
         return (
             <div className="Dashboard-component"> 
             <div className="p-grid p-fluid dashboard">
+                <h1>Dashboard</h1>
                 {/* <div className="p-col-12 p-lg-4">
                     <div className="card summary">
                         <span className="title">Users</span>

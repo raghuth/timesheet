@@ -2,7 +2,10 @@
     @include transition(margin-left $transitionDuration);
     background-color: $footerBgColor;
     padding: 1em 2em;
-    margin-top: 21%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     img {
         vertical-align: middle;
     }
