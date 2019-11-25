@@ -45,7 +45,7 @@ class App extends Component {
     }
 
     componentDidMount(){
-      console.log(this.context); //{}
+     
     }
   
     onWrapperClick(event) {
@@ -105,7 +105,7 @@ class App extends Component {
             // { label: 'Add User', icon: 'pi pi-fw pi-user-plus', command: () => { window.location = '#/user/add' } },
            // { label: 'index', icon: 'pi pi-fw pi-clock', command: () => { window.location = '#/index' } },
             { label: 'Add User Role', icon: 'pi pi-fw pi-th-large', command: () => { window.location = '#/user/add/role' } },
-            { label: 'Add Client', icon: 'pi pi-fw pi-cog', command: () => { window.location = '#/client/client' } },
+            { label: 'Client', icon: 'pi pi-fw pi-cog', command: () => { window.location = '#/client/client' } },
             { label: 'Create Task', icon: 'pi pi-fw pi-list', command: () => { window.location = '#/task/add' } },
             { label: 'User Tasks', icon: 'pi pi-fw pi-clock', command: () => { window.location = '#/task/user' } },
             { label: 'Timesheet Report', icon: 'pi pi-fw pi-eye', command: () => { window.location = '#/reports/timesheet' } }

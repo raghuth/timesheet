@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { InputText } from 'primereact/inputtext';
-import { Button } from 'primereact/button';
-
+import { Formik,} from 'formik';
+import * as Yup from "yup";
+import {BreadCrumb} from 'primereact/breadcrumb';
 export class AdduserComponent extends Component {
     constructor() {
         super();
@@ -16,38 +16,121 @@ export class AdduserComponent extends Component {
     }
 
     render() {
-      
+        const items = [
+            {label:'Dashboard'},          
+            {label:'Add User'},
+        
+        ];
+
+        const home = {icon: 'pi pi-home', url: 'https://www.primefaces.org/primereact'} 
         return (
          <div className="addusercomponent">
             <div className="p-grid p-fluid">              
                 <div className="p-col-12">               
                     <div className="card card-w-title">
                         <div className="p-col-12 ">
+                        <BreadCrumb model={items} home={home} /> 
                             <h1>Add User</h1>
-                            <div className="p-grid">
-                                <div className="p-col-12">
-                                    <label htmlFor="input"> First Name </label>
-                                </div>
-                                <div className="p-col-12 ">
-                                    <InputText id="input" />
-                                </div>
-                                <div className="p-col-12 ">
-                                    <label htmlFor="input"> Last Name </label>
-                                </div>
-                                <div className="p-col-12">
-                                    <InputText id="input" />
-                                </div>
-                                <div className="p-col-12">
-                                    <label htmlFor="input"> Email ID </label>
-                                </div>
-                                <div className="p-col-12">
-                                    <InputText id="input" />
-                                </div>
-                                <div className="submit-button" >
-                                <Button label="Submit" className="p-button-success " onClick={() => this.setState({ navigate: true })} ></Button>      
-                                <Button label="Cancel" className="p-button-danger" />                                                       
-                                </div>                                                             
-                            </div>                              
+                            <Formik
+                                    initialValues={{ email: "" }}
+                                    onSubmit={async values => {
+                                        await new Promise(resolve => setTimeout(resolve, 500));
+                                        alert(JSON.stringify(values, null, 2));
+                                    }}
+                                    validationSchema={Yup.object().shape({
+                                        email: Yup.string()
+                                            .email()
+                                            .required("Required")
+                                    })}
+                                >
+                                    {props => {
+                                        const {
+                                            values,
+                                            touched,
+                                            errors,
+                                            dirty,
+                                            isSubmitting,
+                                            handleChange,
+                                            handleBlur,
+                                            handleSubmit,
+                                            handleReset
+                                        } = props;
+                                        return (
+                                            <form onSubmit={handleSubmit}>
+                                                <label htmlFor="First Name" style={{ display: "block" }}>
+                                                    First Name
+                                                      </label>
+                                                <input
+                                                    id="email"
+                                                    placeholder="First Name"
+                                                    type="text"
+                                                    value={values.email}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    className={
+                                                        errors.email && touched.email
+                                                            ? "text-input error"
+                                                            : "text-input"
+                                                    }
+                                                />
+                                                {errors.email && touched.email && (
+                                                    <div className="input-feedback">{errors.email}</div>
+                                                )}
+                                                <label htmlFor="email" style={{ display: "block" }}>
+                                                    Last Name
+                                                      </label>
+                                                <input
+                                                    id="email"
+                                                    placeholder="Last Name"
+                                                    type="text"
+                                                    value={values.email}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    className={
+                                                        errors.email && touched.email
+                                                            ? "text-input error"
+                                                            : "text-input"
+                                                    }
+                                                />
+                                                {errors.email && touched.email && (
+                                                    <div className="input-feedback">{errors.email}</div>
+                                                )}
+                                                <label htmlFor="email" style={{ display: "block" }}>
+                                                    Email ID
+                                                      </label>
+                                                <input
+                                                    id="email"
+                                                    placeholder="Email ID"
+                                                    type="text"
+                                                    value={values.email}
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    className={
+                                                        errors.email && touched.email
+                                                            ? "text-input error"
+                                                            : "text-input"
+                                                    }
+                                                />
+                                                {errors.email && touched.email && (
+                                                    <div className="input-feedback">{errors.email}</div>
+                                                )}
+                                                <button
+                                                    type="button"
+                                                    className="outline"
+                                                    onClick={handleReset}
+                                                    disabled={!dirty || isSubmitting}
+                                                >
+                                                    Reset
+                                                    </button>
+                                                <button type="submit" disabled={isSubmitting}>
+                                                    Submit
+                                                   </button>
+
+                                                {/* <DisplayFormikState {...props} /> */}
+                                            </form>
+                                        );
+                                    }}
+                                </Formik>                                                 
                         </div>
                     </div>
                 </div>

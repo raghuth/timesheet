@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
-
+import {BreadCrumb} from 'primereact/breadcrumb';
 export class UserTaskComponent extends Component {
     constructor(props) {
         super(props);
@@ -9,9 +9,16 @@ export class UserTaskComponent extends Component {
     }
 
     render() {
+        const items = [
+            {label:'Dashboard'},          
+            {label:'User tasks'}
+         
+        ];
 
+        const home = {icon: 'pi pi-home', url: 'https://www.primefaces.org/primereact'}  
         return (
             <div className="UserTaskComponent">
+                 <BreadCrumb model={items} home={home} />    
                 <h1>User Tasks</h1>
                 <Toolbar>
                     <div className="p-toolbar-group-left">
