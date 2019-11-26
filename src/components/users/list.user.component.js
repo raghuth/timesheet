@@ -9,20 +9,8 @@ export class UserListComponent extends Component {
     constructor() {
         super();
         this.state = {
-            users: [],
-            items: [
-                { label: 'Categories' },
-                { label: 'Sports' },
-                { label: 'Football' },
-                { label: 'Countries' },
-                { label: 'Spain' },
-                { label: 'F.C. Barcelona' },
-                { label: 'Squad' },
-                { label: 'Lionel Messi', url: 'https://en.wikipedia.org/wiki/Lionel_Messi' }
-            ],
-            home: { icon: 'pi pi-home', url: 'https://www.primefaces.org/primereact' },
+            users: [],           
             navigate: false
-
         }
         this.userservice = new UserService();
     }
@@ -37,7 +25,6 @@ export class UserListComponent extends Component {
         if (navigate) {
             return <Route path="/user/add" exact component={window.location = '#/user/add'} />
         }
-
         return (
             <div className="userlistcomponent">
                 <div className="p-grid p-fluid">

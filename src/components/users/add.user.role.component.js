@@ -1,23 +1,20 @@
-import React, { Component } from 'react';
+
+//import React,{useState} from 'react';
+import React from 'react';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
 import {BreadCrumb} from 'primereact/breadcrumb';
-export class AddUserRoleComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {
-        const items = [
-            {label:'Dashboard'},          
-            {label:'Add user role '}
-         
-        ];
 
+export function AddUserRoleComponent () {   
+    //  const [] = useState('static'); 
+            const items = [
+            {label:'Dashboard'},          
+            {label:'Add user role '}          
+        ];
         const home = {icon: 'pi pi-home', url: 'https://www.primefaces.org/primereact'} 
         return (
             <div className="AddUserRoleComponent" >
-                 <BreadCrumb model={items} home={home} /> 
+                <BreadCrumb model={items} home={home} /> 
                 <h1>Add User Role</h1>
                 <Toolbar>
                     <div className="p-toolbar-group-left">
@@ -35,5 +32,4 @@ export class AddUserRoleComponent extends Component {
             </div>
         );
     }
-}
 

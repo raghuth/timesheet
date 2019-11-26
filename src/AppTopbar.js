@@ -14,15 +14,15 @@ export class AppTopbar extends Component {
     render() {
         return (
             <div className="layout-topbar clearfix">
-                {/* <button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
+                <button className="p-link layout-menu-button" onClick={this.props.onToggleMenu}>
                     <span className="pi pi-bars"/>
-                </button>
-                <div className="layout-topbar-icons">
+                </button> 
+                {/* <div className="layout-topbar-icons">
                     <button className="p-link">
                         <span className="layout-topbar-item-text">User</span>
                         <span className="layout-topbar-icon pi pi-user"/>
                     </button>
-                </div> */}
+                </div>  */}
             </div>
         );
     }

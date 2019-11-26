@@ -25,6 +25,9 @@ import { TimesheetReportComponent } from './components/reports/timesheet.report.
 import { AddClientComponent } from './components/client/add.client.component';
 import { ThemeContext } from '././components/ThemeContext';
 //import { index } from '././components/test.component'
+
+//const [ stateVariable, setStateVariable ] = useState('default value')
+
 class App extends Component {
 
     constructor() {
@@ -36,7 +39,6 @@ class App extends Component {
             overlayMenuActive: false,
             mobileMenuActive: false
         };
-
         this.onWrapperClick = this.onWrapperClick.bind(this);
         this.onToggleMenu = this.onToggleMenu.bind(this);
         this.onSidebarClick = this.onSidebarClick.bind(this);
@@ -83,6 +85,12 @@ class App extends Component {
 
         event.preventDefault();
     }
+
+// Test react hooks //
+           
+
+    
+// Test react hooks //
 
     onSidebarClick(event) {
         this.menuClick = true;

@@ -1,133 +1,88 @@
-import React, { Component } from 'react';
-import { Formik,} from 'formik';
+//import React,{useState} from 'react';
+import React from 'react';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from "yup";
-import {BreadCrumb} from 'primereact/breadcrumb';
-export class AssignUserComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {
-        const items = [
-            {label:'Dashboard'},        
-            {label:'Assign user'}
-         
-        ];
+import { BreadCrumb } from 'primereact/breadcrumb';
 
-        const home = {icon: 'pi pi-home', url: 'https://www.primefaces.org/primereact'} 
+export function AssignUserComponent () {
+       //const [] = useState('static'); 
+          const items = [
+            { label: 'Dashboard' },
+            { label: 'Assign user'}
+        ];
+        const home = { icon: 'pi pi-home', url: 'https://www.primefaces.org/primereact' }
         return (
             <div className="assignusercomponent">
                 <div className="p-grid p-fluid">
                     <div className="p-col-12">
                         <div className="card card-w-title">
                             <div className="p-col-12 ">
-                            <BreadCrumb model={items} home={home} /> 
+                                <BreadCrumb model={items} home={home} />
                                 <h1>Assign User</h1>
                                 <Formik
-                                    initialValues={{ email: "" }}
-                                    onSubmit={async values => {
-                                        await new Promise(resolve => setTimeout(resolve, 500));
-                                        alert(JSON.stringify(values, null, 2));
+                                    initialValues={{
+                                        firstName: '',
+                                        lastName: '',
+                                        email: '',
+                                        password: '',
+                                        confirmPassword: ''
                                     }}
                                     validationSchema={Yup.object().shape({
+                                        firstName: Yup.string()
+                                            .required('First Name is required'),
+                                        lastName: Yup.string()
+                                            .required('Last Name is required'),
                                         email: Yup.string()
-                                            .email()
-                                            .required("Required")
+                                            .email('Email is invalid')
+                                            .required('Email is required'),
+                                        password: Yup.string()
+                                            .min(6, 'Password must be at least 6 characters')
+                                            .required('Password is required'),
+                                        confirmPassword: Yup.string()
+                                            .oneOf([Yup.ref('password'), null], 'Passwords must match')
+                                            .required('Confirm Password is required')
                                     })}
-                                >
-                                    {props => {
-                                        const {
-                                            values,
-                                            touched,
-                                            errors,
-                                            dirty,
-                                            isSubmitting,
-                                            handleChange,
-                                            handleBlur,
-                                            handleSubmit,
-                                            handleReset
-                                        } = props;
-                                        return (
-                                            <form onSubmit={handleSubmit}>
-                                                <label htmlFor="First Name" style={{ display: "block" }}>
-                                                    First Name
-                                                      </label>
-                                                <input
-                                                    id="email"
-                                                    placeholder="First Name"
-                                                    type="text"
-                                                    value={values.email}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    className={
-                                                        errors.email && touched.email
-                                                            ? "text-input error"
-                                                            : "text-input"
-                                                    }
-                                                />
-                                                {errors.email && touched.email && (
-                                                    <div className="input-feedback">{errors.email}</div>
-                                                )}
-                                                <label htmlFor="email" style={{ display: "block" }}>
-                                                    Last Name
-                                                      </label>
-                                                <input
-                                                    id="email"
-                                                    placeholder="Last Name"
-                                                    type="text"
-                                                    value={values.email}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    className={
-                                                        errors.email && touched.email
-                                                            ? "text-input error"
-                                                            : "text-input"
-                                                    }
-                                                />
-                                                {errors.email && touched.email && (
-                                                    <div className="input-feedback">{errors.email}</div>
-                                                )}
-                                                <label htmlFor="email" style={{ display: "block" }}>
-                                                    Email ID
-                                                      </label>
-                                                <input
-                                                    id="email"
-                                                    placeholder="Email ID"
-                                                    type="text"
-                                                    value={values.email}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    className={
-                                                        errors.email && touched.email
-                                                            ? "text-input error"
-                                                            : "text-input"
-                                                    }
-                                                />
-                                                {errors.email && touched.email && (
-                                                    <div className="input-feedback">{errors.email}</div>
-                                                )}
-                                                <button
-                                                    type="button"
-                                                    className="outline"
-                                                    onClick={handleReset}
-                                                    disabled={!dirty || isSubmitting}
-                                                >
-                                                    Reset
-                                                    </button>
-                                                <button type="submit" disabled={isSubmitting}>
-                                                    Submit
-                                                   </button>
-
-                                                {/* <DisplayFormikState {...props} /> */}
-                                            </form>
-                                        );
+                                    onSubmit={fields => {
+                                        alert('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4))
                                     }}
-                                </Formik>                
+                                    render={({ errors, status, touched }) => (
+                                        <Form>
+                                            <div className="form-group">
+                                                <label htmlFor="firstName">First Name</label>
+                                                <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
+                                                <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="lastName">Last Name</label>
+                                                <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
+                                                <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="email">Email</label>
+                                                <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                                                <ErrorMessage name="email" component="div" className="invalid-feedback" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="password">Password</label>
+                                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                                                <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="confirmPassword">Confirm Password</label>
+                                                <Field name="confirmPassword" type="password" className={'form-control' + (errors.confirmPassword && touched.confirmPassword ? ' is-invalid' : '')} />
+                                                <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />
+                                            </div>
+                                            <div className="form-group">
+                                                <button type="submit" className="btn btn-primary mr-2">Register</button>
+                                                <button type="reset" className="btn btn-secondary">Reset</button>
+                                            </div>
+                                        </Form>
+                                    )}
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        );
-    }
+        );    
 }

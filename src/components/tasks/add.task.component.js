@@ -1,19 +1,12 @@
-import React, { Component } from 'react';
+//import React,{useState} from 'react';
+import React  from 'react';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
 import {BreadCrumb} from 'primereact/breadcrumb';
-export class AddTaskComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {  
-        const items = [
-            {label:'Dashboard'},           
-            {label:'Create task'}
-          
-        ];
 
+export function  AddTaskComponent () {
+   //const [] = useState('static'); 
+        const items = [ {label:'Dashboard'},{label:'Create task'}];
         const home = {icon: 'pi pi-home', url: 'https://www.primefaces.org/primereact'}   
         return (
             <div className="AddTaskComponent">  
@@ -33,7 +26,6 @@ export class AddTaskComponent extends Component {
                     </div>
                 </Toolbar>
             </div>
-        );
-    }
+        );    
 }
 
